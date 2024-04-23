@@ -1,0 +1,19 @@
+(*) Time complexity is the study of how programs slows as data grows.
+
+that's why all constants can be omitted safely since they do not
+grow as data (or input) grows.
+
+Product Rule: (omit constants in multiplication)
+
+O(5 * n) ==> O(n)
+O(n / 5) ==> O(n)
+O(321) ==> O(1) constant time
+
+Sum Rule: (keep the term that's bigger)
+
+O(n^2 + n) ==> O(n^2)
+O(n^5 + n + n^4 + 123) ==> O(n^5)
+
+(*) Space Complexity in recursion:
+    Space taken by the stack frames pushed into the runtime stack
+    are also counted.
