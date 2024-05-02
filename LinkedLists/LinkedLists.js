@@ -123,7 +123,8 @@ const recursiveReverseLinkedList = (current, previous) => {
     return (recursiveReverseLinkedList(next, current));
 }
 
-// 1, 2, 3, 4, 5, 6
+// 1 => 2 => 3 => 4 => 5 => 6 (null)
+// (null) 1 <= 2 <= 3 <= 4 <= 5 <= 6
 const recReverseLinkedList = (current) => {
     if (current == null) {
         return (null);
@@ -131,15 +132,12 @@ const recReverseLinkedList = (current) => {
 
     const next = current.next;
 
-    if (current.next == null) {
+    if (next == null) {
         return (current);
     }
 
     let ret = recReverseLinkedList(current.next);
 
-    if (next.next != null) {
-        next.next.next = next;
-    }
     next.next = current;
     current.next = null;
     return (ret);
@@ -147,35 +145,39 @@ const recReverseLinkedList = (current) => {
 
 const zipperLists = (list1, list2) => {
     let newList = null;
-    let current = null;
+    let temp = null;
+
+    if (list1 == null && list2 == null) {
+        return (null);
+    }
 
     while (list1 != null || list2 != null) {
         if (list1 != null) {
-            let val = list1.val;
-
-            list1 = list1.next;
+            temp = addNode(temp, list1);
             if (newList == null) {
-                newList = new node(val);
-                current = newList;
+                newList = temp;
             }
-
-            current.next = new node(val);
+            list1 = list1.next;
         }
 
         if (list2 != null) {
-            let val = list2.val;
-
-            list2 = list2.next;
+            temp = addNode(temp, list2);
             if (newList == null) {
-                newList = new node(val);
-                current = newList;
+                newList = temp;
             }
-
-            current.next = new node(val);
+            list2 = list2.next;
         }
     }
 
-    return (list2);
+    return (newList);
+}
+
+const addNode = (dest, src) => {
+    if (dest == null) {
+        return (new Node(src.val));
+    }
+    dest.next = new Node(src.val);
+    return (dest.next);
 }
 
 let a = new Node(1);
@@ -190,5 +192,20 @@ b.next = c;
 c.next = d;
 d.next = e;
 e.next = f;
-a = recReverseLinkedList(a);
-printLinkedList(a);
+
+let x = new Node(1);
+let y = new Node(2);
+let z = new Node(3);
+let xx = new Node(4);
+let yy = new Node(10);
+let zz = new Node(5);
+
+x.next = y;
+y.next = z;
+z.next = xx;
+xx.next = yy;
+yy.next = zz;
+
+x = recReverseLinkedList(x);
+let res = zipperLists(a, x);
+printLinkedList(res);
