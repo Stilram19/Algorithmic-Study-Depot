@@ -86,7 +86,7 @@ const BFT = (root) => {
     return (result);
 }
 
-// includes problem
+// includes problem using depth first traversal
 
 const includes = (root, val) => {
     if (root == null) {
@@ -100,13 +100,58 @@ const includes = (root, val) => {
     return (includes(root.left, val) || includes(root.right, val));
 }
 
-const a = new Node('a');
-const b = new Node('b');
-const c = new Node('c');
-const d = new Node('d');
-const e = new Node('e');
-const f = new Node('f');
-const g = new Node('g');
+// tree sum using depth first traversal
+
+const treeSum = (root) => {
+    if (root == null) {
+        return (0);
+    }
+
+    return (root.val + treeSum(root.left) + treeSum(root.right));
+}
+
+// tree min value using depth first traversal
+
+const minimum = (values) => {
+    let min = values[0];
+
+    for (let i = 1; i < values.length; i++) {
+        if (min > values[i]) {
+            min = values[i];
+        }
+    }
+
+    return (min);
+}
+
+const minVal = (root) => {
+    if (root == null) {
+        return (0);
+    }
+
+    let values = [ root.val ]
+
+    if (root.left != null) {
+        values.push(minVal(root.left));
+    }
+    if (root.right != null) {
+       values.push(minVal(root.right));
+    }
+
+    return (minimum(values));    
+}
+
+//        a
+//   b         c
+// d   e     f   g
+
+const a = new Node(3);
+const b = new Node(11);
+const c = new Node(4);
+const d = new Node(4);
+const e = new Node(20);
+const f = new Node(2);
+const g = new Node(10);
 
 a.left = b;
 a.right = c;
@@ -123,6 +168,10 @@ c.right = g;
 
 // console.log(vals);
 
-const vals = BFT(a);
+// const vals = BFT(a);
 
-console.log(vals);
+// console.log(vals);
+
+// console.log(treeSum(a));
+
+console.log(minVal(a));
