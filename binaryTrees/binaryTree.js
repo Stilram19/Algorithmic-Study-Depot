@@ -126,19 +126,15 @@ const minimum = (values) => {
 
 const minVal = (root) => {
     if (root == null) {
-        return (0);
+        return (Infinity);
     }
 
-    let values = [ root.val ]
+    let values = [ root.val ];
 
-    if (root.left != null) {
-        values.push(minVal(root.left));
-    }
-    if (root.right != null) {
-       values.push(minVal(root.right));
-    }
+    values.push(minVal(root.left));
+    values.push(minVal(root.right));
 
-    return (minimum(values));    
+    return (Math.min(...values));
 }
 
 //        a
