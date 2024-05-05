@@ -86,6 +86,20 @@ const BFT = (root) => {
     return (result);
 }
 
+// includes problem
+
+const includes = (root, val) => {
+    if (root == null) {
+        return (false);
+    }
+
+    if (root.val == val) {
+        return (true);
+    }
+
+    return (includes(root.left, val) || includes(root.right, val));
+}
+
 const a = new Node('a');
 const b = new Node('b');
 const c = new Node('c');
