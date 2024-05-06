@@ -141,6 +141,27 @@ const minVal = (root) => {
 //   b         c
 // d   e     f   g
 
+// stack: a, b, d
+
+// bleft = 3 + 2;
+// bright = 3 + 4;
+const maxLeafPathSum = (root) => {
+    if (root == null) {
+        return (-Infinity);
+    }
+
+    if (root.left == null && root.right == null) {
+        return (root.val);
+    }
+
+    let left_sum = maxLeafPathSum(root.left);
+    let right_sum = maxLeafPathSum(root.right);
+
+    return (Math.max(left_sum, right_sum) + root.val);
+}
+
+
+
 const a = new Node(3);
 const b = new Node(11);
 const c = new Node(4);
@@ -148,6 +169,10 @@ const d = new Node(4);
 const e = new Node(20);
 const f = new Node(2);
 const g = new Node(10);
+
+//        3
+//   11        4
+// 4   20    2   10
 
 a.left = b;
 a.right = c;
@@ -170,4 +195,4 @@ c.right = g;
 
 // console.log(treeSum(a));
 
-console.log(minVal(a));
+console.log(maxLeafPathSum(a));
