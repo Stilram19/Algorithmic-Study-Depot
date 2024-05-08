@@ -30,7 +30,7 @@ const isPalindromRec = (str, i = 0) => {
     return (false);
 }
 
-const strTestArr = ["OMAR", "", "A", "AB", "ABA", "AABAA", "ABBA", "PALINDROMNORDNILAP", "PALINDROMMORDNILAP", "PALINDROMORDNILAP"];
+const strTestArr = ["RACECAR", "", "A", "AB", "ABA", "AABAA", "ABBA", "PALINDROMNORDNILAP", "PALINDROMMORDNILAP", "PALINDROMORDNILAP"];
 
 for (let i = 0; i < strTestArr.length; i++) {
     console.log(strTestArr[i]);
