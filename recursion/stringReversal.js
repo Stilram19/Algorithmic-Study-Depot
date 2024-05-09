@@ -1,3 +1,6 @@
+// time complexity: O(N^2)
+// space complexity: O(N)
+
 const reverseString = (str) => {
     if (str.length <= 1) {
         return str; // Base case: return the string itself when its length is 0 or 1

@@ -1,5 +1,6 @@
 // iterative solution
-
+// time complexity: O(N)
+// space complexity: O(1)
 const isPalindrom = (str) => {
     let i = 0, j = str.length - 1;
 
@@ -15,7 +16,8 @@ const isPalindrom = (str) => {
 };
 
 // recursive solution
-
+// time complexity: O(N)
+// space complexity: O(N)
 const isPalindromRec = (str, i = 0) => {
     // base case
     if (i >= str.length - 1 - i) {

@@ -8,6 +8,8 @@
 
 // iterative solution
 
+// time complexity: O(log(N))
+// space complexity: O(log(N))
 const decimalToBinary = (number) => {
     let binary = [];
 
@@ -24,11 +26,12 @@ const decimalToBinary = (number) => {
 
 // recursive solution
 
+// time complexity: O(log(N))
+// space complexity: O(log(N) * log(N))
 const decimalToBinaryRec = (number) => {
     if (number == 0) {
         return [];
     }
-
 
     let binary = decimalToBinaryRec(Math.floor(number / 2));
 
