@@ -27,7 +27,7 @@ const decimalToBinary = (number) => {
 // recursive solution
 
 // time complexity: O(log(N))
-// space complexity: O(log(N) * log(N))
+// space complexity
 const decimalToBinaryRec = (number) => {
     if (number == 0) {
         return [];
