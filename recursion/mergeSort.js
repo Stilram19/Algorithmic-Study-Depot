@@ -49,7 +49,4 @@ const mergeSort = (arr, start = 0, end = arr.length - 1) => {
 
 const array = [1, 3, 2, 4, 5, 7, 6, 9, 8, 90, 7, 6, 5434, 23, -123, 4, 32];
 
-// 0,5
-
-// 1,2,3,4,6,9
 console.log(mergeSort(array));
