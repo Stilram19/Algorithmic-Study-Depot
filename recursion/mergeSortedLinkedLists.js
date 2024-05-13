@@ -14,6 +14,9 @@ const insertNode = (dest, src) => {
     return (dest.next);
 }
 
+// time complexity: O(N + M)
+// space complexity: O(N + M)
+
 const mergeSortedLinkedLists = (list1, list2) => {
     let mergeList = null;
     let mergeListCurrent = null;
@@ -49,6 +52,28 @@ const mergeSortedLinkedLists = (list1, list2) => {
     return (mergeList);
 }
 
+// time complexity: O(N + M)
+// space complexity: O(N + M)
+
+const recMergeSortedLinkedLists = (firstNode, secondNode) => {
+    if (firstNode == null) {
+        return (secondNode);
+    }
+
+    if (secondNode == null) {
+        return (firstNode);
+    }
+
+    if (firstNode.val < secondNode.val) {
+        firstNode.next = recMergeSortedLinkedLists(firstNode.next, secondNode);
+        return (firstNode);
+    }
+
+    secondNode.next = recMergeSortedLinkedLists(firstNode, secondNode.next);
+    return (secondNode);
+}
+
+
 const displayList = (head) => {
     let current = head;
 
@@ -82,4 +107,4 @@ dd.next = ee;
 
 // displayList(aa);
 
-displayList(mergeSortedLinkedLists(a, aa));
+displayList(recMergeSortedLinkedLists(a, aa));
