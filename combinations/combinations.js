@@ -1,3 +1,6 @@
+// time complexity: 
+// space complexity: O(2^n)
+
 const combinations = (elements) => {
     if (elements.length === 0) {
         return ([ [] ]);
