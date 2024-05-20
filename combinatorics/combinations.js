@@ -1,5 +1,4 @@
-// time complexity: 
-// space complexity: O(2^n)
+// this function returns all the combinations of a given array (set)
 
 const combinations = (elements) => {
     if (elements.length === 0) {
@@ -20,8 +19,5 @@ const combinations = (elements) => {
 
     return ([...withoutFirstCombinations, ...withFirstCombinations]);
 };
-// [a, b, c, d]
-// stack: ([a])
-// return: [ [], [d], [c], [d, c], [b], [d, b], [c, b], [d, c, b], [a], [d, a], [c, a], [d, c, a], [b, a], [d, b, a], [c, b, a], [d, c, b, a] ]
 
 console.log(combinations(['a', 'b', 'c', 'd']));
