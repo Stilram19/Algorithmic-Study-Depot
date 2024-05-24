@@ -9,10 +9,12 @@ const graph = {
     2: ['1']
 };
 
-// we need to count the number of connected components of the input graph
+const largest_component = (graph) => {
+    if (graph == null) {
+        return ;
+    }
 
-const connected_components_count = (graph) => {
-    let count = 0;
+    let longest_number = 0;
     let visited = new Set();
 
     for (let node in graph) {
@@ -20,15 +22,21 @@ const connected_components_count = (graph) => {
             continue ;
         }
 
-        dfsIterTraverse(graph, node, visited);
-        count++;
+        let current_component_size = explore(graph, node, visited);
+
+        console.log(`Component Size: ${current_component_size}`);
+
+        if (longest_number < current_component_size) {
+            longest_number = current_component_size;
+        }
     }
 
-    return (count);
+    return (longest_number);
 };
 
-const dfsIterTraverse = (graph, source, visited) => {
+const explore = (graph, source, visited) => {
     let stack = [ source ];
+    let size = 0;
 
     while (stack.length != 0) {
         const currentNode = stack.pop();
@@ -44,7 +52,11 @@ const dfsIterTraverse = (graph, source, visited) => {
         }
 
         visited.add(currentNode);
+        size++;
     }
+
+    return (size);
 };
 
-console.log(connected_components_count(graph));
+
+console.log(largest_component(graph));
