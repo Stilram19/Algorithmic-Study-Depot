@@ -23,7 +23,7 @@ function removeElement(nums: number[], val: number): number {
 
 let arr = [2];
 
-let k = removeElement(arr, 3);
+let res = removeElement(arr, 3);
 
-console.log('k: ' + k);
+console.log('k: ' + res);
 console.log('arr: ' + arr);
