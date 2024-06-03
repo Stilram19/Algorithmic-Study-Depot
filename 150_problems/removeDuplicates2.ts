@@ -1,4 +1,4 @@
-function removeDuplicates(nums: number[]): number {
+function removeDuplicates2(nums: number[]): number {
     if (nums.length == 0) {
         return (0);
     }
@@ -23,8 +23,3 @@ function removeDuplicates(nums: number[]): number {
     return (i + 1);
 };
 
-const arr = [0,0,1,1,1,1,2,3,3];
-
-console.log('k: ' + removeDuplicates(arr));
-
-console.log('arr: ' + arr);

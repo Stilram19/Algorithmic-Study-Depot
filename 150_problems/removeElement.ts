@@ -20,10 +20,3 @@ function removeElement(nums: number[], val: number): number {
 
     return (i);
 };
-
-let arr = [2];
-
-let res = removeElement(arr, 3);
-
-console.log('k: ' + res);
-console.log('arr: ' + arr);

@@ -1,4 +1,4 @@
-function removeDuplicates(nums: number[]): number {
+function removeDuplicates1(nums: number[]): number {
     if (nums.length == 0) {
         return (0);
     }
